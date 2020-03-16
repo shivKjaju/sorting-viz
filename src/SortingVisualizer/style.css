@@ -1,0 +1,9 @@
+.array-container  {
+    position: absolute;
+    left: 100px;
+}
+.array-bars {
+    width: 10px;
+    display: inline-block;
+    margin: 0 1px;
+  }
