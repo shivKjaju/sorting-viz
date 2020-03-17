@@ -42,20 +42,27 @@ export default class SortingVisualizer extends React.Component{
             while(!isSorted){
                 isSorted = true
                 for(let i = 0; i < array.length-1; i++){
-    
-                    if(array[i] > array[i+1]){
-                        this.swap(i, i+1, array);
-                        isSorted = false;
-                    }
+                    
+                    setTimeout(() => {
+
+                        if(array[i] > array[i+1]){
+                            arrayBar[i].style.backgroundColor = 'red'
+                            arrayBar[i+1].style.backgroundColor = 'red'
+                            this.swap(i, i+1, array);
+                            isSorted = false;
+                        }
+
+                        setTimeout(() => {
+                            arrayBar[i].style.backgroundColor = 'turquoise'
+                            arrayBar[i+1].style.backgroundColor = 'turquoise'
+                        }, (i+1) * 10)
+                    }, i*10)
+
+                   
                 }
             }
-
-            this.setState({
-                array
-           }) 
         
     }
-
 
 
     swap = (i, j, array) => {
